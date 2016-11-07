@@ -23,6 +23,7 @@ class AudioFileViewController: UIViewController, AVAudioPlayerDelegate {
     var player: AVAudioPlayer!
     var speechToText: SpeechToText!
     var speechSample: URL!
+    
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var textView: UITextView!
     

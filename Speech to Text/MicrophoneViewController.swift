@@ -20,7 +20,9 @@ import SpeechToTextV1
 class MicrophoneViewController: UIViewController {
 
     var speechToText: SpeechToText!
+    var speechToTextSession: SpeechToTextSession!
     var isStreaming = false
+    
     @IBOutlet weak var microphoneButton: UIButton!
     @IBOutlet weak var textView: UITextView!
     
@@ -30,24 +32,91 @@ class MicrophoneViewController: UIViewController {
             username: Credentials.SpeechToTextUsername,
             password: Credentials.SpeechToTextPassword
         )
+        speechToTextSession = SpeechToTextSession(
+            username: Credentials.SpeechToTextUsername,
+            password: Credentials.SpeechToTextPassword
+        )
     }
     
     @IBAction func didPressMicrophoneButton(_ sender: UIButton) {
+        streamMicrophoneBasic()
+    }
+    
+    /**
+     This function demonstrates how to use the basic
+     `SpeechToText` class to transcribe microphone audio.
+     */
+    public func streamMicrophoneBasic() {
         if !isStreaming {
+            
+            // update state
             microphoneButton.setTitle("Stop Microphone", for: .normal)
             isStreaming = true
-            var settings = RecognitionSettings(contentType: .wav)
+            
+            // define recognition settings
+            var settings = RecognitionSettings(contentType: .opus)
             settings.continuous = true
             settings.interimResults = true
+            
+            // define error function
             let failure = { (error: Error) in print(error) }
-            speechToText.recognizeMicrophone(settings: settings, compress: false, failure: failure) {
+            
+            // start recognizing microphone audio
+            speechToText.recognizeMicrophone(settings: settings, failure: failure) {
                 results in
                 self.textView.text = results.bestTranscript
             }
+            
         } else {
+            
+            // update state
             microphoneButton.setTitle("Start Microphone", for: .normal)
             isStreaming = false
+            
+            // stop recognizing microphone audio
             speechToText.stopRecognizeMicrophone()
+        }
+    }
+    
+    /**
+     This function demonstrates how to use the more advanced
+     `SpeechToTextSession` class to transcribe microphone audio.
+     */
+    public func streamMicrophoneAdvanced() {
+        if !isStreaming {
+            
+            // update state
+            microphoneButton.setTitle("Stop Microphone", for: .normal)
+            isStreaming = true
+            
+            // define callbacks
+            speechToTextSession.onConnect = { print("connected") }
+            speechToTextSession.onDisconnect = { print("disconnected") }
+            speechToTextSession.onError = { error in print(error) }
+            speechToTextSession.onPowerData = { decibels in print(decibels) }
+            speechToTextSession.onMicrophoneData = { data in print("received data") }
+            speechToTextSession.onResults = { results in self.textView.text = results.bestTranscript }
+            
+            // define recognition settings
+            var settings = RecognitionSettings(contentType: .opus)
+            settings.continuous = true
+            settings.interimResults = true
+            
+            // start recognizing microphone audio
+            speechToTextSession.connect()
+            speechToTextSession.startRequest(settings: settings)
+            speechToTextSession.startMicrophone()
+            
+        } else {
+            
+            // update state
+            microphoneButton.setTitle("Start Microphone", for: .normal)
+            isStreaming = false
+            
+            // stop recognizing microphone audio
+            speechToTextSession.stopMicrophone()
+            speechToTextSession.stopRequest()
+            speechToTextSession.disconnect()
         }
     }
 }
