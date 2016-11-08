@@ -2,13 +2,13 @@
 
 This repository contains an example application to demonstrate how to use the Speech to Text functionality of the [Watson Developer Cloud iOS SDK](https://github.com/watson-developer-cloud/ios-sdk).
 
-# Requirements
+## Requirements
 
 - Swift 3.0+
 - Xcode 8.0+
 - iOS 8.0+
 
-# Dependency Management
+## Dependency Management
 
 This project uses [Carthage](https://github.com/Carthage/Carthage) to manage dependencies. You can install Carthage using [Homebrew](http://brew.sh/).
 
@@ -16,7 +16,7 @@ This project uses [Carthage](https://github.com/Carthage/Carthage) to manage dep
 > brew install carthage
 ```
 
-# Getting Started
+## Getting Started
 
 1. Clone the repository: `git clone https://github.com/watson-developer-cloud/speech-to-text-swift.git`
 2. Build the dependencies: `carthage update --platform iOS`
