@@ -1,12 +1,12 @@
 # Speech to Text Demo (Swift)
 
-This repository contains an example application to demonstrate how to use the Speech to Text functionality of the [Watson Developer Cloud Swift SDK](https://github.com/watson-developer-cloud/ios-sdk).
+This repository contains an example application to demonstrate how to use the Speech to Text functionality of the [Watson Developer Cloud Swift SDK](https://github.com/watson-developer-cloud/swift-sdk).
 
 ## Requirements
 
-- Swift 3.0+
-- Xcode 8.0+
 - iOS 8.0+
+- Xcode 9.0+
+- Swift 4.0+
 
 ## Dependency Management
 
