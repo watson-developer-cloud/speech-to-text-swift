@@ -55,7 +55,6 @@ class MicrophoneViewController: UIViewController {
             
             // define recognition settings
             var settings = RecognitionSettings(contentType: .opus)
-            settings.continuous = true
             settings.interimResults = true
             
             // define error function
@@ -99,7 +98,6 @@ class MicrophoneViewController: UIViewController {
             
             // define recognition settings
             var settings = RecognitionSettings(contentType: .opus)
-            settings.continuous = true
             settings.interimResults = true
             
             // start recognizing microphone audio
