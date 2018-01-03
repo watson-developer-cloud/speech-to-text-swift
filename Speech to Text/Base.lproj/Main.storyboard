@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="i3a-KM-U3V">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="i3a-KM-U3V">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,19 +23,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Transcribe the audio file to view a transcription..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e6q-su-WmN">
+                                <rect key="frame" x="16" y="72" width="343" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="s3A-j2-V2X">
+                                <rect key="frame" x="16" y="580" width="343" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poG-DX-X1Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
                                         <state key="normal" title="Play Audio File"/>
                                         <connections>
                                             <action selector="didPressPlayButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lLf-sf-jdZ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGz-tu-bMR">
+                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="30"/>
                                         <state key="normal" title="Transcribe Audio File"/>
                                         <connections>
                                             <action selector="didPressTranscribeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bh0-iH-tGV"/>
@@ -61,9 +68,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2573.5999999999999" y="792.95352323838085"/>
+            <point key="canvasLocation" x="1076" y="1548"/>
         </scene>
-        <!--Microphone-->
+        <!--Mic (Basic)-->
         <scene sceneID="DsO-I1-4TC">
             <objects>
                 <viewController id="Hv0-da-b3m" customClass="MicrophoneViewController" customModule="Speech_to_Text" customModuleProvider="target" sceneMemberID="viewController">
@@ -76,11 +83,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Start the microphone to view a transcription..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pgK-ou-ijN">
+                                <rect key="frame" x="16" y="72" width="343" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yb6-aG-SOj">
+                                <rect key="frame" x="127.5" y="580" width="120" height="30"/>
                                 <state key="normal" title="Start Microphone"/>
                                 <connections>
                                     <action selector="didPressMicrophoneButton:" destination="Hv0-da-b3m" eventType="touchUpInside" id="hnX-Qw-eht"/>
@@ -97,7 +106,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="pgK-ou-ijN" secondAttribute="trailing" id="wD3-kn-d0d"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Microphone" id="GLu-xz-GM9"/>
+                    <tabBarItem key="tabBarItem" title="Mic (Basic)" id="GLu-xz-GM9"/>
                     <connections>
                         <outlet property="microphoneButton" destination="yb6-aG-SOj" id="OYu-uo-i2n"/>
                         <outlet property="textView" destination="pgK-ou-ijN" id="zhh-hK-NJn"/>
@@ -105,14 +114,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEn-JF-Mgy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2573.5999999999999" y="1459.52023988006"/>
+            <point key="canvasLocation" x="1820" y="1548"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8xI-zu-Pwl">
             <objects>
                 <navigationController id="i3a-KM-U3V" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="l5x-eq-nBn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -130,17 +139,84 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Speech to Text" id="RA1-CE-FtY"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="7L1-xw-aX6">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="6Ce-RJ-ax7"/>
                         <segue destination="Hv0-da-b3m" kind="relationship" relationship="viewControllers" id="dpg-Ne-dFE"/>
+                        <segue destination="BLs-kY-wBJ" kind="relationship" relationship="viewControllers" id="gCW-Xc-XbV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ezA-H5-aOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1820" y="793"/>
+        </scene>
+        <!--Mic (Advanced)-->
+        <scene sceneID="W5A-4P-RFx">
+            <objects>
+                <viewController id="BLs-kY-wBJ" customClass="MicrophoneAdvancedViewController" customModule="Speech_to_Text" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bOj-Q0-oDi"/>
+                        <viewControllerLayoutGuide type="bottom" id="KTB-8i-aIO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MqS-cW-fUK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Start the microphone to view a transcription..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4ut-Eb-1I8">
+                                <rect key="frame" x="16" y="72" width="343" height="500"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1HY-jN-R7n">
+                                <rect key="frame" x="57.5" y="580" width="260" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUO-e3-eJK">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="40Q-e1-jxU"/>
+                                        </constraints>
+                                        <state key="normal" title="Start Session"/>
+                                        <connections>
+                                            <action selector="didPressSessionButton:" destination="BLs-kY-wBJ" eventType="touchUpInside" id="9d7-CY-IZo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Sv-xb-60M">
+                                        <rect key="frame" x="140" y="0.0" width="120" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="VkI-Vp-yPB"/>
+                                        </constraints>
+                                        <state key="normal" title="Start Microphone"/>
+                                        <connections>
+                                            <action selector="didPressMicrophoneButton:" destination="BLs-kY-wBJ" eventType="touchUpInside" id="1p6-bP-jM7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1HY-jN-R7n" firstAttribute="centerX" secondItem="MqS-cW-fUK" secondAttribute="centerX" id="5KS-4T-wmw"/>
+                            <constraint firstItem="4ut-Eb-1I8" firstAttribute="top" secondItem="bOj-Q0-oDi" secondAttribute="bottom" constant="8" id="SDX-eI-adm"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="4ut-Eb-1I8" secondAttribute="leading" id="bNK-cM-PPp"/>
+                            <constraint firstItem="1HY-jN-R7n" firstAttribute="top" secondItem="4ut-Eb-1I8" secondAttribute="bottom" constant="8" id="qNY-eg-3j0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4ut-Eb-1I8" secondAttribute="trailing" id="qbJ-Dg-O5k"/>
+                            <constraint firstItem="KTB-8i-aIO" firstAttribute="top" secondItem="1HY-jN-R7n" secondAttribute="bottom" constant="8" id="ztE-0p-YvM"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Mic (Advanced)" id="j0f-1B-5Tw"/>
+                    <connections>
+                        <outlet property="microphoneButton" destination="6Sv-xb-60M" id="WoH-9t-bLW"/>
+                        <outlet property="sessionButton" destination="jUO-e3-eJK" id="4PH-bv-5tW"/>
+                        <outlet property="textView" destination="4ut-Eb-1I8" id="dgo-nc-hZk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="abv-Hx-JOs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2550" y="1548"/>
         </scene>
     </scenes>
 </document>
