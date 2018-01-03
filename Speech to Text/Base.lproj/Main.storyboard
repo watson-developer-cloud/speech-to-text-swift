@@ -73,7 +73,7 @@
         <!--Mic (Basic)-->
         <scene sceneID="DsO-I1-4TC">
             <objects>
-                <viewController id="Hv0-da-b3m" customClass="MicrophoneViewController" customModule="Speech_to_Text" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hv0-da-b3m" customClass="MicrophoneBasicViewController" customModule="Speech_to_Text" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jUg-zF-j0L"/>
                         <viewControllerLayoutGuide type="bottom" id="P4y-Nd-I1n"/>
