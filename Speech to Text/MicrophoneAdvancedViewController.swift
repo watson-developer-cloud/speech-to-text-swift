@@ -15,6 +15,7 @@
  **/
 
 import UIKit
+import AVFoundation
 import SpeechToTextV1
 
 /// This file demonstrates an advanced configuration using the `SpeechToTextSession` class.
@@ -50,6 +51,19 @@ class MicrophoneAdvancedViewController: UIViewController {
         settings = RecognitionSettings(contentType: .opus)
         settings.interimResults = true
         settings.inactivityTimeout = -1
+
+        // configure audio session
+        configureAudioSession()
+    }
+
+    func configureAudioSession() {
+        do {
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: [.defaultToSpeaker, .mixWithOthers])
+            try audioSession.setActive(true)
+        } catch {
+            print("Failed to setup the AVAudioSession.")
+        }
     }
 
     @IBAction func didPressSessionButton(_ sender: UIButton) {
