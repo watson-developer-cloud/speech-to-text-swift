@@ -52,10 +52,19 @@ class MicrophoneAdvancedViewController: UIViewController {
         settings.interimResults = true
         settings.inactivityTimeout = -1
 
+        // request microphone permission
+        requestMicrophonePermission()
+        
         // configure audio session
         configureAudioSession()
     }
 
+    func requestMicrophonePermission() {
+        AVCaptureDevice.requestAccess(for: .audio) { granted in
+            print("audio capture permission granted: \(granted)")
+        }
+    }
+    
     func configureAudioSession() {
         do {
             let audioSession = AVAudioSession.sharedInstance()
