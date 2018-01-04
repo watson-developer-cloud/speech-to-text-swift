@@ -59,12 +59,18 @@ class MicrophoneAdvancedViewController: UIViewController {
         configureAudioSession()
     }
 
+    /// The `SpeechToTextSession` class will automatically request access to the microphone when
+    /// it is needed. But some apps may prefer to request microphone permission in advance.
     func requestMicrophonePermission() {
         AVCaptureDevice.requestAccess(for: .audio) { granted in
             print("audio capture permission granted: \(granted)")
         }
     }
     
+    /// Depending on your application's requirements, you might need to configure the default
+    /// audio session to play nicely with other audio sources. For example, this function
+    /// configures the session to default to the speaker (instead of headphones) and mix
+    /// with audio from other apps rather than stopping playback when recording starts.
     func configureAudioSession() {
         do {
             let audioSession = AVAudioSession.sharedInstance()
