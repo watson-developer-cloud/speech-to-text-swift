@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		686F53331FFD1AFA008D3BA0 /* MicrophoneAdvancedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686F53321FFD1AFA008D3BA0 /* MicrophoneAdvancedViewController.swift */; };
+		68A4C5172016B39D00835EE4 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A4C5162016B39D00835EE4 /* Starscream.framework */; };
 		7AE28FD31DD10D6900A663ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE28FD21DD10D6900A663ED /* AppDelegate.swift */; };
 		7AE28FD51DD10D6900A663ED /* AudioFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE28FD41DD10D6900A663ED /* AudioFileViewController.swift */; };
 		7AE28FD81DD10D6900A663ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE28FD61DD10D6900A663ED /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		686F53321FFD1AFA008D3BA0 /* MicrophoneAdvancedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneAdvancedViewController.swift; sourceTree = "<group>"; };
+		68A4C5162016B39D00835EE4 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 		7AE28FCF1DD10D6900A663ED /* Speech to Text.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Speech to Text.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AE28FD21DD10D6900A663ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AE28FD41DD10D6900A663ED /* AudioFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AE28FE81DD1108500A663ED /* SpeechToTextV1.framework in Frameworks */,
+				68A4C5172016B39D00835EE4 /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +86,7 @@
 		7AE28FE41DD1108500A663ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68A4C5162016B39D00835EE4 /* Starscream.framework */,
 				7AE28FE61DD1108500A663ED /* SpeechToTextV1.framework */,
 			);
 			name = Frameworks;
@@ -165,6 +169,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SpeechToTextV1.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
 			);
 			outputPaths = (
 			);
