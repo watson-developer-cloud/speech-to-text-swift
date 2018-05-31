@@ -21,6 +21,7 @@ class MicrophoneBasicViewController: UIViewController {
 
     var speechToText: SpeechToText!
     var isStreaming = false
+    var accumulator = SpeechRecognitionResultsAccumulator()
     
     @IBOutlet weak var microphoneButton: UIButton!
     @IBOutlet weak var textView: UITextView!
@@ -38,10 +39,15 @@ class MicrophoneBasicViewController: UIViewController {
             isStreaming = true
             microphoneButton.setTitle("Stop Microphone", for: .normal)
             let failure = { (error: Error) in print(error) }
-            var settings = RecognitionSettings(contentType: .opus)
+            var settings = RecognitionSettings(contentType: "audio/ogg;codecs=opus")
             settings.interimResults = true
-            speechToText.recognizeMicrophone(settings: settings, failure: failure) { results in
-                self.textView.text = results.bestTranscript
+            speechToText.recognizeMicrophone(settings: settings, failure: failure) {
+         
+                results in
+                self.accumulator.add(results: results)
+                print(self.accumulator.bestTranscript)
+                self.textView.text = self.accumulator.bestTranscript
+          
             }
         } else {
             isStreaming = false
