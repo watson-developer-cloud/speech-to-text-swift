@@ -23,6 +23,7 @@ class AudioFileViewController: UIViewController, AVAudioPlayerDelegate {
     var player: AVAudioPlayer!
     var speechToText: SpeechToText!
     var speechSample: URL!
+    var accumulator = SpeechRecognitionResultsAccumulator()
     
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var textView: UITextView!
@@ -54,12 +55,14 @@ class AudioFileViewController: UIViewController, AVAudioPlayerDelegate {
     }
 
     @IBAction func didPressTranscribeButton(_ sender: UIButton) {
-        var settings = RecognitionSettings(contentType: .wav)
+        var settings = RecognitionSettings(contentType: "audio/wav")
         settings.interimResults = true
         let failure = { (error: Error) in print(error) }
         speechToText.recognize(audio: speechSample, settings: settings, failure: failure) {
             results in
-            self.textView.text = results.bestTranscript
+            self.accumulator.add(results: results)
+            self.textView.text = self.accumulator.bestTranscript
+ 
         }
     }
 }

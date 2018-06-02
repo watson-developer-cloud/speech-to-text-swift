@@ -25,10 +25,12 @@ class MicrophoneAdvancedViewController: UIViewController {
     var settings: RecognitionSettings!
     var isSessionStarted = false
     var isStreaming = false
+    var accumulator = SpeechRecognitionResultsAccumulator()
 
     @IBOutlet weak var sessionButton: UIButton!
     @IBOutlet weak var microphoneButton: UIButton!
     @IBOutlet weak var textView: UITextView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +47,14 @@ class MicrophoneAdvancedViewController: UIViewController {
         session.onError = { error in print(error) }
         session.onPowerData = { decibels in print(decibels) }
         session.onMicrophoneData = { data in print("received data") }
-        session.onResults = { results in self.textView.text = results.bestTranscript }
+        session.onResults = {
+            results in
+            self.accumulator.add(results: results)
+            self.textView.text = self.accumulator.bestTranscript
+        }
 
         // define recognition settings
-        settings = RecognitionSettings(contentType: .opus)
+        settings = RecognitionSettings(contentType: "audio/ogg;codecs=opus")
         settings.interimResults = true
         settings.inactivityTimeout = -1
 
