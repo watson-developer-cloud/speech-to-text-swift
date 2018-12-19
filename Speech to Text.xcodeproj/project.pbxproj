@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0637D57021C9C594003A2924 /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0637D56F21C9C594003A2924 /* RestKit.framework */; };
 		686F53331FFD1AFA008D3BA0 /* MicrophoneAdvancedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686F53321FFD1AFA008D3BA0 /* MicrophoneAdvancedViewController.swift */; };
 		68A4C5172016B39D00835EE4 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A4C5162016B39D00835EE4 /* Starscream.framework */; };
 		7AE28FD31DD10D6900A663ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE28FD21DD10D6900A663ED /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0637D56F21C9C594003A2924 /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = Carthage/Build/iOS/RestKit.framework; sourceTree = "<group>"; };
 		686F53321FFD1AFA008D3BA0 /* MicrophoneAdvancedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneAdvancedViewController.swift; sourceTree = "<group>"; };
 		68A4C5162016B39D00835EE4 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 		7AE28FCF1DD10D6900A663ED /* Speech to Text.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Speech to Text.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +45,7 @@
 			files = (
 				7AE28FE81DD1108500A663ED /* SpeechToTextV1.framework in Frameworks */,
 				68A4C5172016B39D00835EE4 /* Starscream.framework in Frameworks */,
+				0637D57021C9C594003A2924 /* RestKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +89,7 @@
 		7AE28FE41DD1108500A663ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0637D56F21C9C594003A2924 /* RestKit.framework */,
 				68A4C5162016B39D00835EE4 /* Starscream.framework */,
 				7AE28FE61DD1108500A663ED /* SpeechToTextV1.framework */,
 			);
@@ -170,12 +174,13 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SpeechToTextV1.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RestKit.framework",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
