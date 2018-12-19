@@ -57,9 +57,17 @@ class AudioFileViewController: UIViewController, AVAudioPlayerDelegate {
     @IBAction func didPressTranscribeButton(_ sender: UIButton) {
         var settings = RecognitionSettings(contentType: "audio/wav")
         settings.interimResults = true
-        let failure = { (error: Error) in print(error) }
-        speechToText.recognize(audio: speechSample, settings: settings, failure: failure) {
-            results in
+        speechToText.recognize(audio: speechSample, settings: settings) {
+            
+            
+            response, error in
+            if let error = error {
+                print(error)
+            }
+            guard let results = response?.result else {
+                print("Failed to recognize the audio")
+                return
+            }
             self.accumulator.add(results: results)
             self.textView.text = self.accumulator.bestTranscript
  
