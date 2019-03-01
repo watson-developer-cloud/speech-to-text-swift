@@ -33,8 +33,7 @@ class AudioFileViewController: UIViewController, AVAudioPlayerDelegate {
         speechSample = Bundle.main.url(forResource: "SpeechSample", withExtension: "wav")
         player = try! AVAudioPlayer(contentsOf: speechSample)
         speechToText = SpeechToText(
-            username: Credentials.SpeechToTextUsername,
-            password: Credentials.SpeechToTextPassword
+            apiKey: Credentials.SpeechToTextApiKey
         )
         player.delegate = self
     }
@@ -57,9 +56,17 @@ class AudioFileViewController: UIViewController, AVAudioPlayerDelegate {
     @IBAction func didPressTranscribeButton(_ sender: UIButton) {
         var settings = RecognitionSettings(contentType: "audio/wav")
         settings.interimResults = true
-        let failure = { (error: Error) in print(error) }
-        speechToText.recognize(audio: speechSample, settings: settings, failure: failure) {
-            results in
+        speechToText.recognize(audio: speechSample, settings: settings) {
+            
+            
+            response, error in
+            if let error = error {
+                print(error)
+            }
+            guard let results = response?.result else {
+                print("Failed to recognize the audio")
+                return
+            }
             self.accumulator.add(results: results)
             self.textView.text = self.accumulator.bestTranscript
  
