@@ -39,23 +39,17 @@ class MicrophoneBasicViewController: UIViewController {
             microphoneButton.setTitle("Stop Microphone", for: .normal)
             var settings = RecognitionSettings(contentType: "audio/ogg;codecs=opus")
             settings.interimResults = true
-            speechToText.recognizeMicrophone(settings: settings) {
-         
-                response, error in
-                
-                if let error = error {
-                    print(error)
-                }
-                guard let results = response?.result else {
-                    print("Failed to recognize the audio")
-                    return
-                }
-                
+            var callback = RecognizeCallback()
+            callback.onError = { error in
+                print(error)
+            }
+            callback.onResults = { results in
                 self.accumulator.add(results: results)
                 print(self.accumulator.bestTranscript)
                 self.textView.text = self.accumulator.bestTranscript
-          
             }
+
+            speechToText.recognizeMicrophone(settings: settings, callback: callback)
         } else {
             isStreaming = false
             microphoneButton.setTitle("Start Microphone", for: .normal)
