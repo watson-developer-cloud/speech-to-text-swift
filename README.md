@@ -1,5 +1,7 @@
 # Speech to Text Demo (Swift)
 
+## DEPRECATED: this repo is no longer actively maintained. It can still be used as reference, but may contain outdated or unpatched code.
+
 This repository contains an example application to demonstrate how to use the Speech to Text functionality of the [Watson Developer Cloud Swift SDK](https://github.com/watson-developer-cloud/swift-sdk).
 
 ## Requirements
